@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Geist';
+  src: url('/fonts/GeistVariableVF.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Geist Mono';
+  src: url('/fonts/GeistMonoVariableVF.woff2') format('woff2');
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+* {
+  text-rendering: optimizeLegibility !important;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+&::-webkit-scrollbar {
+  display: none;
+}
+
+.font-sans {
+  font-feature-settings: "ss05", "tnum";
+  -moz-font-feature-settings: "ss05", "tnum";
+  -webkit-font-feature-settings: "ss05", "tnum";
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  :root {
+    --c-bg-0: 17 24 39;
+    --c-bg-1: 25 34 45;
+    --c-bg-2: 31 41 55;
+    --c-bg-3: 55 65 81;
+    --c-fg: 255 255 255;
+    --c-accent: 5 134 255;
+    --c-accent-light: 87 174 255;
+    --c-primary: 0 120 225;
+    --c-primary-hover: 0 95 179;
+    --c-primary-fg: 255 255 255;
+    --c-secondary: 190 61 255;
+    --c-success: 19 176 118;
+    --c-success-hover: 12 138 91;
+    --c-success-fg: 255 255 255;
+    --c-danger: 238 52 52;
+    --c-danger-hover: 184 28 28;
+    --c-danger-fg: 255 255 255;
+    --c-neutral: 55 60 75;
+    --c-neutral-hover: 45 50 65;
+    --c-neutral-fg: 255 255 255;
+    --c-link: 75 213 255;
+    --c-link-hover: 155 232 255;
+    --c-link-visited: 75 213 255;
+  }
+}
+
+@layer utilities {
+  .btn {
+    @apply font-semibold no-underline duration-200 ease-out inline-flex items-center justify-center p-3.5
+    rounded-lg cursor-pointer select-none whitespace-nowrap text-sm;
+
+    --bg: rgb(var(--c-neutral));
+    --hover: rgb(var(--c-neutral-hover));
+    --fg: rgb(var(--c-neutral-fg));
+
+    background-color: var(--bg);
+    color: var(--fg);
+
+    &:not(:disabled) {
+      &:active:hover,
+      &:active:focus {
+        animation: button-pop 0s ease-out;
+        transform: scale(0.97);
+      }
+
+      &:hover {
+        background-color: var(--hover);
+      }
+    }
+
+    &:focus-visible {
+      @apply outline outline-2 outline-offset-2;
+      outline-color: var(--bg);
+    }
+
+    &:disabled {
+      @apply cursor-not-allowed opacity-60;
+    }
+
+    &.btn-sm {
+      @apply px-3 py-2;
+    }
+
+    &.btn-primary {
+      --bg: rgb(var(--c-primary));
+      --hover: rgb(var(--c-primary-hover));
+      --fg: rgb(var(--c-primary-fg));
+    }
+    &.btn-accent {
+      --bg: rgb(var(--c-accent));
+      --hover: rgb(var(--c-accent-light));
+      --fg: rgb(var(--c-fg));
+    }
+    &.btn-neutral { /* default */ }
+    &.btn-danger {
+      --bg: rgb(var(--c-danger));
+      --hover: rgb(var(--c-danger-hover));
+      --fg: rgb(var(--c-danger-fg));
+    }
+    &.btn-ghost {
+      --bg: transparent;
+      --hover: rgba(var(--c-fg) / 0.1);
+      --fg: rgb(var(--c-fg));
+    }
+    &.btn-ghost-danger {
+      --bg: transparent;
+      --hover: rgba(var(--c-danger-hover) / 0.5);
+      --fg: rgb(var(--c-fg));
+    }
+  }
+}
+
+@keyframes button-pop {
+  0% {
+    transform: scale(0.98);
+  }
+  40% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
