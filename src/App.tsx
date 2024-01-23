@@ -2,10 +2,10 @@ import {Component, createMemo, createSignal, For, Setter, Show} from "solid-js";
 import "./index.css"
 
 const DEFAULT_IMAGES = [
-  ['/images/beach-mountain.jpg', 620, 424] as const,
-  ['/images/kitchen-interior.jpg', 640, 480] as const,
-  ['/images/mountain-view.jpg', 640, 360] as const,
-  ['/images/snowy-lake.jpg', 640, 327] as const,
+  ['/ril-playground/images/beach-mountain.jpg', 620, 424] as const,
+  ['/ril-playground/images/kitchen-interior.jpg', 640, 480] as const,
+  ['/ril-playground/images/mountain-view.jpg', 640, 360] as const,
+  ['/ril-playground/images/snowy-lake.jpg', 640, 327] as const,
 ]
 
 enum InstructionType {
